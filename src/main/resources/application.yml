@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    username: sa
+    password:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+
+  h2:
+    console:
+      enabled: true
+
+  application:
+    name: OrderService
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+
+
+  cloud:
+    compatibility-verifier:
+      enabled: false
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:  # ✅ Correct level
+    hostname: localhost
+    prefer-ip-address: true
